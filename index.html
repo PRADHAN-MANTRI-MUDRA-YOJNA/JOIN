@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZIYA VIP FREE - Premium Lottery Predictions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #1a0033 0%, #0a0012 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    
+    /* Background effects */
+    .background-effects {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .floating-ball {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 105, 180, 0.3);
+      box-shadow: 0 0 20px #ff69b4;
+      animation: float 15s infinite linear;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100vw);
+        opacity: 0;
+      }
+    }
+    
+    /* SMS Notification */
+    .sms-notification {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 350px;
+      background: #f0f0f0;
+      color: #333;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 100;
+      animation: smsSlideIn 1s forwards, smsFadeOut 1s 5s forwards;
+      font-family: Arial, sans-serif;
+      border-left: 5px solid #4CAF50;
+    }
+
+    @keyframes smsSlideIn {
+      from { top: -100px; opacity: 0; }
+      to { top: 20px; opacity: 1; }
+    }
+
+    @keyframes smsFadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    .sms-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .sms-body {
+      font-size: 14px;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .sms-amount {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .sms-footer {
+      font-size: 11px;
+      color: #ff4444;
+      margin-top: 10px;
+      text-align: left;
+    }
+    
+    /* Main Content */
+    .content {
+      z-index: 10;
+      padding: 30px;
+      background: rgba(20, 5, 40, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+      max-width: 90%;
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(255, 105, 180, 0.4);
+      margin: 20px;
+      transform-style: preserve-3d;
+      transform: translateZ(20px);
+    }
+    
+    .logo-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 20px;
+    }
+    
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ff69b4;
+      box-shadow: 0 0 30px #ff69b4, 0 0 60px rgba(255, 105, 180, 0.5);
+      transition: transform 0.3s;
+    }
+    
+    .verified-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      background: #ff69b4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    
+    .verified-badge i {
+      color: white;
+      font-size: 20px;
+    }
+    
+    .channel-name {
+      font-size: 2em;
+      font-weight: 800;
+      margin: 10px 0;
+      color: #ff69b4;
+      text-shadow: 0 0 10px #ff69b4;
+      transform: translateZ(15px);
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { text-shadow: 0 0 10px #ff69b4, 0 0 20px rgba(255,105,180,0.5); }
+      50% { text-shadow: 0 0 20px #ff69b4, 0 0 40px rgba(255,105,180,0.8), 0 0 60px rgba(255,105,180,0.6); }
+    }
+    
+    h1 {
+      font-size: 2.2em;
+      margin: 20px 0 15px;
+      background: linear-gradient(to right, #ff69b4, #ff1493, #ff0080);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+      letter-spacing: 1px;
+    }
+    
+    .description {
+      font-size: 1.1em;
+      color: #eee;
+      margin: 15px 0;
+      line-height: 1.5;
+      max-width: 500px;
+    }
+    
+    /* Bloody Glass Button */
+    .button-container {
+      position: relative;
+      margin: 30px 0;
+    }
+    
+    .blood-drop {
+      position: absolute;
+      width: 20px;
+      height: 30px;
+      background: #ff0000;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      opacity: 0.8;
+      filter: blur(1px);
+      z-index: 2;
+      animation: drip 4s infinite;
+    }
+    
+    @keyframes drip {
+      0%, 20% { transform: translateY(0) scale(1); opacity: 0; }
+      30% { opacity: 0.8; }
+      40% { transform: translateY(80px) scale(0.5); opacity: 0; }
+      100% { opacity: 0; }
+    }
+    
+    .telegram-button {
+      position: relative;
+      display: inline-block;
+      padding: 22px 50px;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: white;
+      background: rgba(255, 45, 85, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50px;
+      box-shadow: 
+        0 0 30px #ff2d55,
+        inset 0 0 20px rgba(255, 255, 255, 0.2),
+        0 0 100px rgba(255, 0, 0, 0.6);
+      cursor: pointer;
+      animation: pulse 1.5s infinite ease-in-out, bloodyFlash 3s infinite;
+      text-decoration: none;
+      transition: all 0.3s;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      z-index: 1;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 30px #ff2d55, inset 0 0 20px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 0, 0, 0.6); }
+      50% { transform: scale(1.05); box-shadow: 0 0 50px #ff2d55, inset 0 0 30px rgba(255, 255, 255, 0.3), 0 0 120px rgba(255, 0, 0, 0.8); }
+    }
+    
+    @keyframes bloodyFlash {
+      0%, 92%, 96%, 100% { box-shadow: 0 0 30px #ff2d55, inset 0 0 20px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 0, 0, 0.6); }
+      94%, 98% { box-shadow: 0 0 50px #ff2d55, inset 0 0 30px rgba(255, 255, 255, 0.3), 0 0 150px rgba(255, 0, 0, 1); }
+    }
+    
+    .telegram-button::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, #ff2d55, #ff0080, #ff2d55);
+      z-index: -1;
+      border-radius: 60px;
+      animation: rotating 3s linear infinite;
+      opacity: 0.5;
+      filter: blur(15px);
+    }
+    
+    @keyframes rotating {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .telegram-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 60px #ff2d55, inset 0 0 30px rgba(255, 255, 255, 0.3), 0 0 150px rgba(255, 0, 0, 1);
+    }
+    
+    .button-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .telegram-icon {
+      font-size: 1.8em;
+    }
+    
+    .countdown {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #ff69b4;
+      text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+    }
+    
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      opacity: 0.7;
+      padding: 20px;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .content {
+        padding: 20px;
+        margin: 15px;
+      }
+      
+      .logo-container {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .channel-name {
+        font-size: 1.6em;
+      }
+      
+      h1 {
+        font-size: 1.8em;
+      }
+      
+      .telegram-button {
+        padding: 18px 35px;
+        font-size: 1.3em;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .channel-name {
+        font-size: 1.4em;
+      }
+      
+      h1 {
+        font-size: 1.5em;
+      }
+      
+      .description {
+        font-size: 1em;
+      }
+      
+      .telegram-button {
+        padding: 15px 30px;
+        font-size: 1.1em;
+      }
+      
+      .countdown {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-effects" id="backgroundEffects"></div>
+  
+  <div class="sms-notification">
+    <div class="sms-header">
+      <span>ICICI Bank</span>
+      <span>10:42 AM</span>
+    </div>
+    <div class="sms-body">
+      Your A/C XXXX6847 has been credited with <span class="sms-amount">₹8,530.00</span> on 07-05-2025 via IMPS (Ref No: 762863838901).
+    </div>
+    <div class="sms-footer">
+      If this transaction was not done by you, please call 1860 419 5555 immediately.
+    </div>
+  </div>
+  
+  <div class="content">
+    <div class="logo-container">
+      <video autoplay loop muted playsinline class="logo-img">
+        <source src="https://files.catbox.moe/fswqj2.mp4" type="video/mp4">
+        <!-- Fallback image if video doesn't load -->
+        <img src="https://i.ibb.co/ZRkyWq8W/IMG-7998.jpg" alt="ZIYA SURESHOT">
+      </video>
+      <div class="verified-badge">
+        <i class="fas fa-check"></i>
+      </div>
+    </div>
+    
+    <div class="channel-name">ZIYA VIP FREE</div>
+    <h1>💸 NUMBER SURESHOT PREDICTIONS</h1>
+    
+    <p class="description">Join our exclusive Telegram channel for premium WINGO lottery predictions and win big every day!</p>
+    
+    <div class="button-container">
+      <div class="blood-drop" style="top: -15px; left: 30%; animation-delay: 0.5s;"></div>
+      <div class="blood-drop" style="top: -15px; left: 50%; animation-delay: 1.5s;"></div>
+      <div class="blood-drop" style="top: -15px; left: 70%; animation-delay: 2.5s;"></div>
+      
+      <a href="tg://join?invite=yanMwI6iw3hjNDll" class="telegram-button" id="telegramButton">
+        <span class="button-text">
+          <i class="fab fa-telegram-plane telegram-icon"></i>
+          JOIN TELEGRAM - ZIYA VIP
+        </span>
+      </a>
+    </div>
+    
+    <div class="countdown" id="countdown">Redirecting in 5 seconds...</div>
+    
+    <p class="description">Get daily sure-shot numbers, winning strategies, and expert tips to maximize your chances of winning!</p>
+  </div>
+
+  <footer>&copy; 2025 ZIYA SURESHOT | All Rights Reserved</footer>
+
+  <script>
+    // Create background floating balls
+    function createFloatingBalls() {
+      const backgroundEffects = document.getElementById('backgroundEffects');
+      const ballCount = 15;
+      
+      for (let i = 0; i < ballCount; i++) {
+        const ball = document.createElement('div');
+        ball.className = 'floating-ball';
+        
+        // Random position
+        const left = Math.random() * 100;
+        const top = Math.random() * 100 + 100;
+        
+        ball.style.left = `${left}vw`;
+        ball.style.top = `${top}vh`;
+        
+        // Random size
+        const size = 10 + Math.random() * 40;
+        ball.style.width = `${size}px`;
+        ball.style.height = `${size}px`;
+        
+        // Random color with pinkish tones
+        const colors = ['#ff69b4', '#ff1493', '#ff0080', '#ff2d55', '#ff6b6b'];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        ball.style.background = randomColor;
+        ball.style.boxShadow = `0 0 20px ${randomColor}`;
+        
+        // Random animation duration
+        const duration = 15 + Math.random() * 20;
+        ball.style.animationDuration = `${duration}s`;
+        
+        // Random delay
+        const delay = Math.random() * 5;
+        ball.style.animationDelay = `${delay}s`;
+        
+        backgroundEffects.appendChild(ball);
+      }
+    }
+    
+    // Countdown timer
+    function startCountdown() {
+      let timeLeft = 5;
+      const countdownElement = document.getElementById('countdown');
+      
+      const countdownInterval = setInterval(() => {
+        timeLeft--;
+        countdownElement.textContent = `Redirecting in ${timeLeft} seconds...`;
+        
+        if (timeLeft <= 0) {
+          clearInterval(countdownInterval);
+          openTelegram();
+        }
+      }, 1000);
+    }
+    
+    // Telegram redirect
+    function openTelegram() {
+      window.location.href = "tg://join?invite=yanMwI6iw3hjNDll";
+      setTimeout(() => {
+        window.location.href = "https://t.me/+yanMwI6iw3hjNDll";
+      }, 500);
+      return false;
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      createFloatingBalls();
+      document.getElementById('telegramButton').addEventListener('click', openTelegram);
+      startCountdown();
+      
+      // Re-show SMS every 30 seconds
+      setInterval(() => {
+        document.querySelector('.sms-notification').style.animation = 'none';
+        setTimeout(() => {
+          document.querySelector('.sms-notification').style.animation = 'smsSlideIn 1s forwards, smsFadeOut 1s 5s forwards';
+        }, 50);
+      }, 30000);
+    });
+  </script>
+</body>
+</html>
